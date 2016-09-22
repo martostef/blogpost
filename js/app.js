@@ -38,11 +38,12 @@ var posteos = (function() {
 
 	    renderPost: function(id){
 
-	    	var largeHtml = "<div><div class='card'><div class='card-image'><img src='"+ postList[id].imagen + "'><span class='card-title'>" + postList[id].titulo + "</span></div><div class='card-content'><p>" + postList[id].texto + "</p></div><div class='card-action'><p class='col s6'>" + postList[id].descripcion + "</p><p class='right-align'><a id='favID-" + id + "' class='favear' href='#'><i class='material-icons'>star</i></a></p></div></div></div>";
+	    	var largeHtml = "<div><div class='card large'><div class='card-image'><img src='"+ postList[id].imagen + "'><span class='card-title'>" + postList[id].titulo + "</span></div><div class='card-content'><p>" + postList[id].texto + "</p></div><div class='card-action'><p class='col s6'>" + postList[id].descripcion + "</p><p class='right-align'><a id='favID-" + id + "' class='favear' href='#'><i class='material-icons'>star</i></a></p></div></div></div>";
 
 	    	var e = $( document.createElement('div') );
+	    	var gridOrList = $( "div#posts" ).find('div').attr('class') || "col s6 offset-s3"; 
 	    	e.attr('id', 'postID-' + id);
-	    	e.attr('class', 'col s6 offset-s3');
+	    	e.attr('class', gridOrList);
 	    	e.append(largeHtml);
 
 	    	$( "#posts" ).prepend( e );
