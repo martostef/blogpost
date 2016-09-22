@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Blog en JQuery</title>
+  </head>
+
+  <body>
+
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Logo</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Escribir</a></li>
+          <li><a id="grillaLista" href="#">Grilla</a></li>
+        </ul>
+      </div>
+    </nav>
+   
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h5>Escribí tu post</h5>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="titulo_post" name="titulo" type="text" class="validate">
+                <label for="first_name">Título</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="descripcion_post" name="descripcion" type="text" class="validate">
+                <label for="last_name">Descripción</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="imagen_post" name="imagen" type="text" class="validate">
+                <label for="disabled">Url de la imagen</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea1" name="texto" class="materialize-textarea"></textarea>
+                <label for="textarea1">Texto</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" id="posting" class="modal-action modal-close waves-effect waves-green btn-flat">Postear</a>
+      </div>
+    </div>
+    
+    <div id="posts" class="row"></div>
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </body>
+</html>
