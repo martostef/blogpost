@@ -4,6 +4,18 @@ var posteos = (function() {
 	var postList = [];
 	var id = 0;
 
+	function IsValidImageUrl(url, callback) {
+	    var s = document.createElement("IMG");
+	    s.src = url;
+	    s.onerror = function(){
+	  		callback(false);
+	    }
+	    s.onload = function(){
+	        callback(true);
+	    }
+	}
+
+
 	return {		
 	    init: function() {
 	    	$('.modal-trigger').leanModal();
@@ -32,8 +44,14 @@ var posteos = (function() {
 	    		posteo[$(this).attr("name")] = $(this).val();
 			});
 
-			postList.push(posteo);
-			posteos.renderPost(postList.length - 1);
+			IsValidImageUrl(posteo.imagen, function(response){
+				if (!response) {
+					posteo.imagen = 'images/no-image-available.png';
+				}
+				postList.push(posteo);
+				posteos.renderPost(postList.length - 1);
+			});
+		
 	    },
 
 	    renderPost: function(id){
